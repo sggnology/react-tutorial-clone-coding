@@ -1,0 +1,19 @@
+{
+  "name": "react-tutorial",
+  "version": "1.0.0",
+  "description": "react tutorial https://ko.reactjs.org/tutorial/tutorial.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sggnology/react-tutorial-clone-coding.git"
+  },
+  "author": "sggnology",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sggnology/react-tutorial-clone-coding/issues"
+  },
+  "homepage": "https://github.com/sggnology/react-tutorial-clone-coding#readme"
+}
