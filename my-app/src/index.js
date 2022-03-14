@@ -23,6 +23,39 @@ function Square(props) {
     )
 }
 
+class BoardRow extends React.Component{
+
+    renderSquare(i) {
+        return <Square
+                    value={this.props.squares[i]}
+                    onClick={() => this.props.onClick(i)}
+                />;
+    }
+
+    renderRow(arr){
+        const rendering = () => {
+
+            const result = []
+
+            for(var i in arr){
+                result.push(this.renderSquare(i))
+            }
+
+            console.log(result)
+
+            return result
+        }
+    }
+
+    render(){
+        return (
+            <div className='board-row'>
+                {this.renderRow(this.props.value)}
+            </div>
+        )
+    }
+}
+
 class Board extends React.Component {
 
     // handleClick(i) {
@@ -43,11 +76,17 @@ class Board extends React.Component {
     //     console.log(this.state.history)
     // }
 
-    renderSquare(i) {
-        return <Square
-                    value={this.props.squares[i]}
-                    onClick={() => this.props.onClick(i)}
-                />;
+    // renderSquare(i) {
+    //     return <Square
+    //                 value={this.props.squares[i]}
+    //                 onClick={() => this.props.onClick(i)}
+    //             />;
+    // }
+
+    renderRow(arr){
+        return <BoardRow
+                    value={arr}
+                />
     }
 
     render() {
@@ -62,24 +101,35 @@ class Board extends React.Component {
         //     status = `Next Player: ${(this.state.xIsNext ? 'X' : 'O')}`;
         // }
 
+        const rowData = [...Array(9).keys()];
+
+        const firstRow = rowData.slice(0,3);
+        const secondRow = rowData.slice(3,6);
+        const thirdRow = rowData.slice(6,9);
+
         return (
+            // <div>
+            //     {/* <div className="status">{status}</div> */}
+            //     <div className="board-row">
+            //         {this.renderSquare(0)}
+            //         {this.renderSquare(1)}
+            //         {this.renderSquare(2)}
+            //     </div>
+            //     <div className="board-row">
+            //         {this.renderSquare(3)}
+            //         {this.renderSquare(4)}
+            //         {this.renderSquare(5)}
+            //     </div>
+            //     <div className="board-row">
+            //         {this.renderSquare(6)}
+            //         {this.renderSquare(7)}
+            //         {this.renderSquare(8)}
+            //     </div>
+            // </div>
             <div>
-                {/* <div className="status">{status}</div> */}
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                {this.renderRow(firstRow)}
+                {this.renderRow(secondRow)}
+                {this.renderRow(thirdRow)}
             </div>
         );
     }
