@@ -107,6 +107,8 @@ class Board extends React.Component {
         const secondRow = rowData.slice(3,6);
         const thirdRow = rowData.slice(6,9);
 
+        
+
         return (
             // <div>
             //     {/* <div className="status">{status}</div> */}
